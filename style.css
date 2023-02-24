@@ -103,6 +103,13 @@ body{
   }
 }
 
+#learning{
+  list-style: none;
+  margin-left: 0;
+}
+#learning li:before{
+  content: '✓';
+}
 
 ul{
     padding: 0;
@@ -198,11 +205,7 @@ a.trail:hover::before {
     }
 
   }
-    
   
-  
-
-
 @media screen and (max-width: 1000px) {
   #container {
     flex-direction: column;
@@ -225,41 +228,3 @@ a.trail:hover::before {
     margin: 0;
   }
 }
-
-.clickable-word {
-  position: relative;
-  cursor: pointer;
-  transition: color 0.4s ease;
-}
-
-.clickable-word:hover {
-  color: rgb(52, 191, 255);
-}
-
-
-.clickable-word::after {
-  content: '';
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 5px solid transparent;
-  margin-left: 5px;
-  visibility: hidden;
-  transition: visibility 0.3s ease, margin-left 0.3s ease;
-}
-
-.clickable-word:hover::after {
-  content: '';
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 5px solid rgb(52, 191, 255);
-  margin-left: 5px;
-  visibility: visible;
-  transition: visibility 0.3s ease, margin-left 0.3s ease;
-}
-
