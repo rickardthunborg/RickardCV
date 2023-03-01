@@ -2,7 +2,6 @@ const contentBoxes = document.querySelectorAll('.content-box');
 const contact = document.querySelector('.contact');
 
 contact.addEventListener('click', function(){
-    console.log('Contact button clicked');
     const targetPosition = document.body.scrollHeight;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
@@ -20,6 +19,10 @@ contact.addEventListener('click', function(){
     }
     window.requestAnimationFrame(step);
 })
+window.addEventListener('load', function() {
+  showBoxesInView();
+  window.dispatchEvent(new Event('scroll'));
+});
 
 function showBoxesInView() {
     for (let box of contentBoxes) {
@@ -37,19 +40,16 @@ function showBoxesInView() {
     }
   });
   
-  window.addEventListener('load', function() {
-    showBoxesInView();
-    window.dispatchEvent(new Event('scroll'));
-  });
 
 function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+  const rect = el.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+
+  const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+  const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
+
+  return (vertInView && horInView);
   }
  
   
