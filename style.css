@@ -57,8 +57,7 @@ gap: 1rem;
   padding: 1rem;
   border-radius: 10%;
   width: 70%;
-
-
+  transition: background-color 0.3s ease-out;
 }
 
 
@@ -69,10 +68,7 @@ gap: 1rem;
 }
 
 
-#profile button:hover, #profile a:hover{
-  cursor: pointer;
-  background-color: #1c1e22;
-}
+
 
 #looking-for {
   margin-top: -2rem;
@@ -151,9 +147,22 @@ ul li {
   border-radius: 10px;
 }
 
+#skills a{
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-out;
+}
+
+#profile button:hover, #profile a:hover, #skills a:hover{
+  cursor: pointer;
+  background-color: #1c1e22;
+  
+}
+
 #skills img {
-  height: 50%;
-  width: 50%;
+  height: 75%;
+  width: 75%;
   object-fit: contain;
   margin: auto 0;
 }
