@@ -1,34 +1,27 @@
 const contentBoxes = document.querySelectorAll('.content-box');
 const contact = document.querySelector('.contact');
 
-// contact.addEventListener('click', function(){
-//     const targetPosition = document.body.scrollHeight;
-//     const startPosition = window.pageYOffset;
-//     const distance = targetPosition - startPosition;
-//     const duration = 1000; // 1 second
+contact.addEventListener('click', function(){
+    const targetPosition = document.body.scrollHeight;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1000; // 1 second
 
-//     let start = null;
-//     function step(timestamp) {
-//         if (!start) start = timestamp;
-//         const progress = timestamp - start;
-//         const increment = distance * (progress / duration);
-//         window.scrollTo(0, startPosition + increment);
-//         if (progress < duration) {
-//             window.requestAnimationFrame(step);
-//         }
-//     }
-//     window.requestAnimationFrame(step);
-// })
-
-
-contact.addEventListener('click', () => {
-  let height = window.innerHeight - window.scrollY;
-  window.scrollBy({
-    top: height,
-    left: 0,
-    behavior: 'smooth'
-  })
+    let start = null;
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const increment = distance * (progress / duration);
+        window.scrollTo(0, startPosition + increment);
+        if (progress < duration) {
+            window.requestAnimationFrame(step);
+        }
+    }
+    window.requestAnimationFrame(step);
 })
+
+
+
 
 window.addEventListener('load', function() {
   showBoxesInView();
